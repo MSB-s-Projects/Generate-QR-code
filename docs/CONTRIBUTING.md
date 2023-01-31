@@ -4,17 +4,19 @@
 - Fork the repository
 - clone the fork by writing the following command
 
+###### replace \<YOUR USERNAME\> with your profile name of GitHub
 ```git
 git clone https://github.com/<YOUR USERNAME>/Generate-QR-code.git
 ```
 
-###### replace \<YOUR USERNAME\> with your profile name of GitHub
-
 - make changes in the fork and push them
   
-###### main logic of the app can be found in : [`/routes/index.js`](../routes/index.js)
+  - ###### main logic of the app can be found in : [`/routes/index.js`](../routes/index.js)
 
 - create a pull request
+
+## Docs for reference
+- qrcode library of JavaScript was used in creating this app you can read about it from [here](https://www.npmjs.com/package/qrcode).
 
 ## Local Setup
 
@@ -35,7 +37,7 @@ yarn install
 npm install
 ```
 
-### To start the server:
+- ### To start the server:
 ###### if using `yarn`
 ```terminal
 yarn start
@@ -46,4 +48,4 @@ yarn start
 npm start
 ```
 
-#### The website can be accessed at: [`https://localhost:3000`](https://localhost:3000)
+- #### The website can be accessed at: [`https://localhost:3000`](https://localhost:3000)
