@@ -11,6 +11,9 @@ git clone https://github.com/<YOUR USERNAME>/Generate-QR-code.git
 ###### replace \<YOUR USERNAME\> with your profile name of GitHub
 
 - make changes in the fork and push them
+  
+###### main logic of the app can be found in : [`/routes/index.js`](../routes/index.js)
+
 - create a pull request
 
 ## Local Setup
