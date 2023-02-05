@@ -1,4 +1,6 @@
+require('dotenv').config()
 var createError = require("http-errors");
+
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
@@ -6,7 +8,7 @@ var logger = require("morgan");
 var mongoose=require('mongoose');
 const QRcode = require("qrcode");
 const { v4: uuidV4 } = require('uuid');
-mongoose.connect("mongodb://0.0.0.0:27017/QRDB",{useNewUrlParser:true});
+mongoose.connect(process.env.MONGO+"/QRDB",{useNewUrlParser:true});
 
 // var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -52,7 +54,7 @@ app.post("/",function(req,res){
               url:base64Str
             });
             ur.save();
-            QRcode.toDataURL(`http://localhost:3000/image/${newVar}`, (er, ul) => {
+            QRcode.toDataURL(process.env.URL+`/image/${newVar}`, (er, ul) => {
               if (!er) {
                 console.log(ul);
                 // rendering the qr code generated
@@ -100,7 +102,9 @@ app.get("/image/:test",function(req,res){
       res.render("image",{img:rl[0].url});
     }
   })
-
+  // var base64Str=req.query.src;
+  // console.log(base64Str);
+  // res.render("image",{img:base64Str});
 })
 // error handler
 app.use(function (err, req, res, next) {
