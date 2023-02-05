@@ -6,7 +6,7 @@
 // mongoose.set('strictQuery', true);
 // const { v4: uuidV4 } = require('uuid');
 // mongoose.connect("mongodb://0.0.0.0:27017/QRDB",{useNewUrlParser:true});
-// // creating express router
+// creating express router
 // var router = express.Router();
 
 // QRcode.toDataURL()
