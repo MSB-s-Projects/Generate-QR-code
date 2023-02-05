@@ -52,7 +52,7 @@ app.post("/",function(req,res){
               url:base64Str
             });
             ur.save();
-            QRcode.toDataURL(`http://localhost:3000/image/${newVar}`, (er, ul) => {
+            QRcode.toDataURL(`https://generateqrcode-msb.vercel.app/image/${newVar}`, (er, ul) => {
               if (!er) {
                 console.log(ul);
                 // rendering the qr code generated
