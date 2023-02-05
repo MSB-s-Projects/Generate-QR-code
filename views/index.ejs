@@ -74,21 +74,37 @@ nav ul li a:hover::before {
   background-color: #fff;
 }
 </style>
-      <form action="/" method="post">
+      <form action="/" method="post" id="theForm">
         <div class="mb-2 text-lg text-yellow-200">
           <!-- <input class="rounded-3xl border-none bg-gray-800 backdrop-blur-md bg-opacity-5 px-6 py-2 text-center text-inherit outline-none" type="text" name="name" placeholder="id@email.com" value="Text to be Encoded:" editable="false" disabled/> -->
           <label for="string" class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Text to be Encoded:</label>
         </div>
 
         <div class="mb-4 text-lg">
-          <input id="string" class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" name="string" placeholder="Enter data" required autocomplete="off" spellcheck=false/>
+          <input id="string" class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" name="string" placeholder="Enter data" autocomplete="off" spellcheck=false/>
         </div>
+        <input type="file" accept="image/*"  onchange="encodeImageFileAsURL(this)">
+        <input type="hidden" name="fd" id="itr">
         <div class="mt-8 flex justify-center text-lg text-black">
-          <button type="submit" class="rounded-3xl bg-yellow-500 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Generate</button>
+          <button type="submit" id="sug" class="rounded-3xl bg-yellow-500 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Generate</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+<script>
+  function encodeImageFileAsURL(element) {
+    let file = element.files[0];
+    let reader = new FileReader();
+    reader.onloadend = function() {
+      var newInput=document.getElementById("itr");
+     
+      newInput.value=reader.result;
 
+      document.getElementById("theForm").submit();
+    }
+    reader.readAsDataURL(file);
+    
+  }
+</script>
 <%- include('partials/footer.ejs') %>
