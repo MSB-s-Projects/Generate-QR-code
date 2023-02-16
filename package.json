@@ -6,9 +6,6 @@
     "start": "SET DEBUG=generate-qr-code:* & nodemon ./bin/www.js"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.11.8",
     "body-parser": "^1.20.1",
     "cookie-parser": "~1.4.4",
     "debug": "~4.3.4",
