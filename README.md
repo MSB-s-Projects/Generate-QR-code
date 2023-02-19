@@ -5,7 +5,7 @@
 
 In this project an Express app was created to encode data given by user into a qr code.
 ## Deployment
-The website has been deployed on the link: [`https://git-scm-clone.vercel.app/`](https://git-scm-clone.vercel.app/)
+The website has been deployed on the link: [`https://git-scm-clone.vercel.app/`](https://generateqrcode-msb.vercel.app/)
 ### Tech Stack
 - Node js
 - Express js
