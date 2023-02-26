@@ -1,94 +1,102 @@
 <%- include('partials/header.ejs') %>
 
-<nav>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Generate QR Code</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Generate QR Code</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- component -->
-<div class="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat" style="background-image:url('https://images.unsplash.com/photo-1499123785106-343e69e68db1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80')">
-  <div class="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
-    <div class="text-white">
-      <div class="mb-8 flex flex-col items-center">
-        <img src="https://cdn-icons-png.flaticon.com/512/9432/9432403.png" width="150" alt="" srcset="" />
-        <h1 class="mb-2 text-2xl">QR code Generator</h1>
-        <span class="text-gray-300">Created by MSB 🤍</span>
+  <!-- component -->
+  <div class="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat"
+    style="background-image:url('https://images.unsplash.com/photo-1499123785106-343e69e68db1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80')">
+    <div
+      class="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8 h-fit mt-[5rem]">
+      <div class="text-white">
+        <div class="mb-8 flex flex-col items-center">
+          <img src="https://cdn-icons-png.flaticon.com/512/9432/9432403.png" width="150" alt="" srcset="" />
+          <h1 class="mb-2 text-2xl">QR code Generator</h1>
+          <span class="text-gray-300">Created by MSB 🤍</span>
+        </div>
+
+
+        <style>
+          body {
+            background-image: url("https://cdn-icons-png.flaticon.com/512/9432/9432403.png");
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+          }
+
+          nav {
+
+            background-color: #333;
+            display: flex;
+            border-radius: 10px;
+            border: 4px solid #918f7f;
+            justify-content: right;
+            padding: 10px 20px;
+            position: absolute;
+            width: 99%;
+            left: 9px;
+            top: 3px;
+            z-index: 2;
+          }
+
+          nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          nav ul li a {
+            color: #fff;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            position: relative;
+          }
+
+          nav ul li a::before {
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 4px;
+          }
+
+          nav ul li a:hover {
+            background-color: #444;
+          }
+
+          nav ul li a:hover::before {
+            background-color: #fff;
+          }
+        </style>
+        <form action="/" method="post">
+          <div class="mb-2 text-lg text-yellow-200">
+            <!-- <input class="rounded-3xl border-none bg-gray-800 backdrop-blur-md bg-opacity-5 px-6 py-2 text-center text-inherit outline-none" type="text" name="name" placeholder="id@email.com" value="Text to be Encoded:" editable="false" disabled/> -->
+            <label for="string"
+              class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Text
+              to be Encoded:</label>
+          </div>
+
+          <div class="mb-4 text-lg">
+            <input id="string"
+              class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+              type="text" name="string" placeholder="Enter data" required autocomplete="off" spellcheck=false />
+          </div>
+          <div class="mt-8 flex justify-center text-lg text-black">
+            <button type="submit"
+              class="rounded-3xl bg-yellow-500 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Generate</button>
+          </div>
+        </form>
       </div>
-      
-      
-      <style>
-        body {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/9432/9432403.png");
-  background-size: cover;
-  height: 100vh;
-  position: relative;
-}
-nav {
-  
-  background-color: #333;
-  display: flex;
-  border-radius: 10px;
-  border: 4px solid #918f7f;
-  justify-content: right;
-  padding: 10px 20px;
-  position: absolute;
-  width: 99%;
-  left: 9px;
-  top: 3px;
-  
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li a {
-  color: #fff;
-  display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  position: relative;
-}
-
-nav ul li a::before {
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 4px;
-}
-
-nav ul li a:hover {
-  background-color: #444;
-}
-
-nav ul li a:hover::before {
-  background-color: #fff;
-}
-</style>
-      <form action="/" method="post">
-        <div class="mb-2 text-lg text-yellow-200">
-          <!-- <input class="rounded-3xl border-none bg-gray-800 backdrop-blur-md bg-opacity-5 px-6 py-2 text-center text-inherit outline-none" type="text" name="name" placeholder="id@email.com" value="Text to be Encoded:" editable="false" disabled/> -->
-          <label for="string" class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Text to be Encoded:</label>
-        </div>
-
-        <div class="mb-4 text-lg">
-          <input id="string" class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" name="string" placeholder="Enter data" required autocomplete="off" spellcheck=false/>
-        </div>
-        <div class="mt-8 flex justify-center text-lg text-black">
-          <button type="submit" class="rounded-3xl bg-yellow-500 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Generate</button>
-        </div>
-      </form>
     </div>
   </div>
-</div>
 
-<%- include('partials/footer.ejs') %>
+  <%- include('partials/footer.ejs') %>
