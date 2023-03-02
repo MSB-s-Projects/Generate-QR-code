@@ -21,8 +21,45 @@
           <span class="text-gray-300">Created by MSB 🤍</span>
         </div>
 
-
         <style>
+          body {
+            background-image: url("https://cdn-icons-png.flaticon.com/512/9432/9432403.png");
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+          }
+
+          nav {
+
+            background-color: #333;
+            display: flex;
+            border-radius: 10px;
+            border: 4px solid #918f7f;
+            justify-content: right;
+            padding: 10px 20px;
+            position: absolute;
+            width: 99%;
+            left: 9px;
+            top: 3px;
+
+          }
+
+          nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          nav ul li a {
+            color: #fff;
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            position: relative;
+          }
+
+
           body {
             background-image: url("https://cdn-icons-png.flaticon.com/512/9432/9432403.png");
             background-size: cover;
@@ -76,19 +113,50 @@
           nav ul li a:hover::before {
             background-color: #fff;
           }
+
+
+          #urllbl,
+          #imagelbl,
+          #url,
+          #image {
+            display: none;
+          }
         </style>
         <form action="/" method="post">
           <div class="mb-2 text-lg text-yellow-200">
-            <!-- <input class="rounded-3xl border-none bg-gray-800 backdrop-blur-md bg-opacity-5 px-6 py-2 text-center text-inherit outline-none" type="text" name="name" placeholder="id@email.com" value="Text to be Encoded:" editable="false" disabled/> -->
-            <label for="string"
+            <label for="string" id="stringlbl"
               class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Text
               to be Encoded:</label>
           </div>
-
+          <div class="mb-2 text-lg text-yellow-200">
+            <label for="url" id="urllbl"
+              class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Url
+              to be Encoded:</label>
+          </div>
+          <div class="mb-2 text-lg text-yellow-200">
+            <label for="image" id="imagelbl"
+              class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Image
+              to be Encoded:</label>
+          </div>
           <div class="mb-4 text-lg">
             <input id="string"
               class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="text" name="string" placeholder="Enter data" required autocomplete="off" spellcheck=false />
+              type="text" name="string" placeholder="Enter data" autocomplete="off" spellcheck=false />
+            <input id="url"
+              class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+              type="text" name="string" placeholder="Enter URL" autocomplete="off" spellcheck=false />
+            <input id="image"
+              class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+              type="file" name="string" placeholder="Upload Image" autocomplete="off" spellcheck=false />
+          </div>
+          <div class="text-center">
+            <span onclick="handleClick('text')" id="stringselector"
+              class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black bg-yellow-400 bg-opacity-50">Text</span>
+            <span onclick="handleClick('url')" id="urlselector"
+              class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black">Link</span>
+            <span onclick="handleClick('image')" id="imageselector"
+              class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black">Image</span>
+
           </div>
           <div class="mt-8 flex justify-center text-lg text-black">
             <button type="submit"
@@ -99,4 +167,61 @@
     </div>
   </div>
 
+
+  <script>
+    var text = document.querySelector("#string");
+    var textlbl = document.querySelector("#stringlbl");
+    var textsel = document.querySelector("#stringselector");
+    var link = document.querySelector("#url");
+    var linklbl = document.querySelector("#urllbl");
+    var linksel = document.querySelector("#urlselector");
+    var image = document.querySelector("#image");
+    var imagelbl = document.querySelector("#imagelbl");
+    var imagesel = document.querySelector("#imageselector");
+    const handleClick = (text) => {
+      selected_block(text);
+    }
+    function selected_block(txt) {
+      if (txt == "text") {
+        link.style.display = "none";
+        linksel.style.background = "none";
+        linklbl.style.display = "none";
+        image.style.display = "none";
+        imagesel.style.background = "none";
+        imagelbl.style.display = "none";
+        text.style.display = "block";
+        textlbl.style.display = "inline";
+        textsel.style.backgroundColor = "rgba(250,204,21,0.5)";
+        text.required=true;
+        link.required=false;
+        image.required=false;
+      } else if (txt == "image") {
+        link.style.display = "none";
+        linksel.style.background = "none";
+        linklbl.style.display = "none";
+        image.style.display = "block";
+        image.required=true;
+        imagesel.style.background = "rgba(250,204,21,0.5)";
+        imagelbl.style.display = "inline";
+        text.style.display = "none";
+        textsel.style.background = "none";
+        textlbl.style.display = "none";
+        text.required=false;
+        link.required=false;
+      } else {
+        link.style.display = "block";
+        link.required=true;
+        linksel.style.background = "rgba(250,204,21,0.5)";
+        linklbl.style.display = "inline";
+        image.style.display = "none";
+        imagesel.style.background = "none";
+        imagelbl.style.display = "none";
+        text.style.display = "none";
+        textsel.style.background = "none";
+        textlbl.style.display = "none";
+        text.required=false;
+        image.required=true;
+      }
+    }
+  </script>
   <%- include('partials/footer.ejs') %>
