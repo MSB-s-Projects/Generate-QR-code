@@ -60,7 +60,6 @@
           }
 
 
-        <style>
           body {
             background-image: url("https://cdn-icons-png.flaticon.com/512/9432/9432403.png");
             background-size: cover;
@@ -116,47 +115,39 @@
           }
 
 
-          #urllbl,#imagelbl,#url,#image{
+          #urllbl,
+          #imagelbl,
+          #url,
+          #image {
             display: none;
           }
-
         </style>
         <form action="/" method="post">
           <div class="mb-2 text-lg text-yellow-200">
-            <!-- <input class="rounded-3xl border-none bg-gray-800 backdrop-blur-md bg-opacity-5 px-6 py-2 text-center text-inherit outline-none" type="text" name="name" placeholder="id@email.com" value="Text to be Encoded:" editable="false" disabled/> -->
             <label for="string" id="stringlbl"
               class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Text
               to be Encoded:</label>
           </div>
           <div class="mb-2 text-lg text-yellow-200">
-            <!-- <input class="rounded-3xl border-none bg-gray-800 backdrop-blur-md bg-opacity-5 px-6 py-2 text-center text-inherit outline-none" type="text" name="name" placeholder="id@email.com" value="Text to be Encoded:" editable="false" disabled/> -->
             <label for="url" id="urllbl"
               class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Url
               to be Encoded:</label>
           </div>
           <div class="mb-2 text-lg text-yellow-200">
-            <!-- <input class="rounded-3xl border-none bg-gray-800 backdrop-blur-md bg-opacity-5 px-6 py-2 text-center text-inherit outline-none" type="text" name="name" placeholder="id@email.com" value="Text to be Encoded:" editable="false" disabled/> -->
             <label for="image" id="imagelbl"
               class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Image
               to be Encoded:</label>
           </div>
-          <label for="string"
-              class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Text
-              to be Encoded:</label>
-          </div>
-
-
           <div class="mb-4 text-lg">
             <input id="string"
               class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="text" name="string" placeholder="Enter data" required autocomplete="off" spellcheck=false />
-
+              type="text" name="string" placeholder="Enter data" autocomplete="off" spellcheck=false />
             <input id="url"
               class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="url" name="string" placeholder="Enter URL" required autocomplete="off" spellcheck=false />
+              type="text" name="string" placeholder="Enter URL" autocomplete="off" spellcheck=false />
             <input id="image"
               class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="file" name="string" placeholder="Upload Image" required autocomplete="off" spellcheck=false />
+              type="file" name="string" placeholder="Upload Image" autocomplete="off" spellcheck=false />
           </div>
           <div class="text-center">
             <span onclick="handleClick('text')" id="stringselector"
@@ -199,28 +190,37 @@
         imagesel.style.background = "none";
         imagelbl.style.display = "none";
         text.style.display = "block";
-        textlbl.style.display = "block";
+        textlbl.style.display = "inline";
         textsel.style.backgroundColor = "rgba(250,204,21,0.5)";
+        text.required=true;
+        link.required=false;
+        image.required=false;
       } else if (txt == "image") {
         link.style.display = "none";
         linksel.style.background = "none";
         linklbl.style.display = "none";
         image.style.display = "block";
+        image.required=true;
         imagesel.style.background = "rgba(250,204,21,0.5)";
-        imagelbl.style.display = "block";
+        imagelbl.style.display = "inline";
         text.style.display = "none";
         textsel.style.background = "none";
         textlbl.style.display = "none";
+        text.required=false;
+        link.required=false;
       } else {
         link.style.display = "block";
+        link.required=true;
         linksel.style.background = "rgba(250,204,21,0.5)";
-        linklbl.style.display = "block";
+        linklbl.style.display = "inline";
         image.style.display = "none";
         imagesel.style.background = "none";
         imagelbl.style.display = "none";
         text.style.display = "none";
         textsel.style.background = "none";
         textlbl.style.display = "none";
+        text.required=false;
+        image.required=true;
       }
     }
   </script>
