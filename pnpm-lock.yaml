@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   body-parser: ^1.20.2
-  bson: ^5.0.1
   cookie-parser: ~1.4.6
   debug: ~4.3.4
   dotenv: ^16.0.3
@@ -17,7 +16,6 @@ specifiers:
 
 dependencies:
   body-parser: 1.20.2
-  bson: 5.0.1
   cookie-parser: 1.4.6
   debug: 4.3.4
   dotenv: 16.0.3
