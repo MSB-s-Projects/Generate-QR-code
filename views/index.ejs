@@ -157,7 +157,6 @@
               class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black">Link</span>
             <span onclick="handleClick('image')" id="imageselector"
               class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black">Image</span>
-
           </div>
           <div class="mt-8 flex justify-center text-lg text-black">
             <button type="submit"
@@ -214,8 +213,7 @@
         text.value="";
         link.required=false;
         link.value="";
-        } 
-        else {
+        }else {
         link.style.display = "block";
         link.required=true;
         linksel.style.background = "rgba(250,204,21,0.5)";
@@ -233,18 +231,18 @@
       }
     }
   </script>
+
   <script>
     function encodeImageFileAsURL(element) {
       let file = element.files[0];
       let reader = new FileReader();
       reader.onloadend = function() {
         var newInput=document.getElementById("imgURL");
-     
         newInput.value=reader.result;
         alert("Image Uploaded! You can proceed for Submission");
       }
       reader.readAsDataURL(file);
-      
     }
   </script>
+
   <%- include('partials/footer.ejs') %>
