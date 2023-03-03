@@ -19,7 +19,7 @@ The website has been deployed on the link: [`https://git-scm-clone.vercel.app/`]
 - JavaScript
 - EJS
 - qrcode library of JavaScript
-- expresss generator
+- express generator
 
 ## Contributing
 
