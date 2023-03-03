@@ -1,13 +1,20 @@
 // importing express
+require('dotenv').config();
 var express = require("express");
 // importing qrcode
 const QRcode = require("qrcode");
 
 // creating express router
 var router = express.Router();
-
-// QRcode.toDataURL()
-
+const { v4: uuidV4 } = require('uuid');
+// var mongoose=require('mongoose');
+// mongoose.connect(process.env.MONGO+"/QRDB",{useNewUrlParser:true});
+// // QRcode.toDataURL()
+// const urlSchema=mongoose.Schema({
+//   name:String,
+//   url:String
+// });
+// const URL=new mongoose.model("url",urlSchema);
 // "/" route
 router
   .route("/")
@@ -21,15 +28,64 @@ router
   // post request
   .post((req, res) => {
     // create a qr code from the form data
-    QRcode.toDataURL(req.body.string, (err, url) => {
-      if (!err) {
-        // rendering the qr code generated
-        res.render("qrcode", { url: url });
-      } else {
-        console.log(err);
-      }
-    });
+    console.log(req.body);
+    if(req.body.Text){
+      QRcode.toDataURL(req.body.Text, (err, url) => {
+        if (!err) {
+          // rendering the qr code generated
+          console.log(url);
+          res.render("qrcode", { url: url });
+        } else {
+          console.log(err);
+        }
+      });
+    }
+    else if(req.body["URL"]){
+      QRcode.toDataURL(req.body["URL"], (err, url) => {
+        if (!err) {
+          // rendering the qr code generated
+          console.log(url);
+          res.render("qrcode", { url: url });
+        } else {
+          console.log(err);
+        }
+      });
+    }
+    else{
+      var newVar=uuidV4();
+      var base64Str=req.body.ImageString;
+      URL.findOne({name:newVar}).then((url)=>{
+        if(err){
+          console.log(err);
+          res.send("Error");
+        }
+        else{
+        
+            res.send("Already Exist");
+          
+        }
+      }).catch((error)=>{
+        const ur=new URL({
+          name:newVar,
+          url:base64Str
+        });
+        ur.save();
+        QRcode.toDataURL(process.env.URL+`/image/${newVar}`, (er, ul) => {
+          if (!er) {
+            console.log(ul);
+            // rendering the qr code generated
+            res.render("qrcode", { url: ul });
+          } else {
+            console.log(er);
+          }
+        });
+      })
+  
+    }
+   
+   
   });
+
 
 // exporting the router
 module.exports = router;
