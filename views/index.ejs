@@ -122,7 +122,7 @@
             display: none;
           }
         </style>
-        <form action="/" method="post">
+        <form action="/" method="post" >
           <div class="mb-2 text-lg text-yellow-200">
             <label for="string" id="stringlbl"
               class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Text
@@ -130,7 +130,7 @@
           </div>
           <div class="mb-2 text-lg text-yellow-200">
             <label for="url" id="urllbl"
-              class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Url
+              class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">URL
               to be Encoded:</label>
           </div>
           <div class="mb-2 text-lg text-yellow-200">
@@ -141,13 +141,14 @@
           <div class="mb-4 text-lg">
             <input id="string"
               class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="text" name="string" placeholder="Enter data" autocomplete="off" spellcheck=false />
+              type="text" name="Text" placeholder="Enter data" autocomplete="off" spellcheck=false >
             <input id="url"
               class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="text" name="string" placeholder="Enter URL" autocomplete="off" spellcheck=false />
+              type="text" name="URL" placeholder="Enter URL" autocomplete="off" spellcheck=false >
             <input id="image"
               class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="file" name="string" placeholder="Upload Image" autocomplete="off" spellcheck=false />
+              type="file" accept="image/*" onchange="encodeImageFileAsURL(this)" name="Image" placeholder="Upload Image" autocomplete="off" spellcheck=false >
+              <input type="hidden" name="ImageString" id="imgURL">
           </div>
           <div class="text-center">
             <span onclick="handleClick('text')" id="stringselector"
@@ -156,7 +157,6 @@
               class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black">Link</span>
             <span onclick="handleClick('image')" id="imageselector"
               class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black">Image</span>
-
           </div>
           <div class="mt-8 flex justify-center text-lg text-black">
             <button type="submit"
@@ -182,7 +182,7 @@
       selected_block(text);
     }
     function selected_block(txt) {
-      if (txt == "text") {
+      if (txt === "text") {
         link.style.display = "none";
         linksel.style.background = "none";
         linklbl.style.display = "none";
@@ -194,8 +194,10 @@
         textsel.style.backgroundColor = "rgba(250,204,21,0.5)";
         text.required=true;
         link.required=false;
+        link.value="";
         image.required=false;
-      } else if (txt == "image") {
+        image.value="";
+      } else if (txt === "image") {
         link.style.display = "none";
         linksel.style.background = "none";
         linklbl.style.display = "none";
@@ -207,8 +209,10 @@
         textsel.style.background = "none";
         textlbl.style.display = "none";
         text.required=false;
+        text.value="";
         link.required=false;
-      } else {
+        link.value="";
+        }else {
         link.style.display = "block";
         link.required=true;
         linksel.style.background = "rgba(250,204,21,0.5)";
@@ -220,8 +224,24 @@
         textsel.style.background = "none";
         textlbl.style.display = "none";
         text.required=false;
-        image.required=true;
+        text.value="";
+        image.required=false;
+        image.value="";
       }
     }
   </script>
+
+  <script>
+    function encodeImageFileAsURL(element) {
+      let file = element.files[0];
+      let reader = new FileReader();
+      reader.onloadend = function() {
+        var newInput=document.getElementById("imgURL");
+        newInput.value=reader.result;
+        alert("Image Uploaded! You can proceed for Submission");
+      }
+      reader.readAsDataURL(file);
+    }
+  </script>
+
   <%- include('partials/footer.ejs') %>
