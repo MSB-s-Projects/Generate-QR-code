@@ -1,6 +1,6 @@
 <%- include('partials/header.ejs') %>
 
-  <nav>
+  <nav class="bg-gradient-to-r from-green-400 to-blue-500 ...">
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Generate QR Code</a></li>
@@ -11,7 +11,7 @@
 
   <!-- component -->
   <div class="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat"
-    style="background-image:url('https://images.unsplash.com/photo-1499123785106-343e69e68db1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80')">
+    style="background-image:url('https://images.nightcafe.studio/jobs/hKHFei5KWul5iYtqKYbl/hKHFei5KWul5iYtqKYbl--1--O30PE_12.5x.jpg?tr=w-1600,c-at_max')">
     <div
       class="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8 h-fit mt-[5rem]">
       <div class="text-white">
@@ -34,45 +34,7 @@
             background-color: #333;
             display: flex;
             border-radius: 10px;
-            border: 4px solid #918f7f;
-            justify-content: right;
-            padding: 10px 20px;
-            position: absolute;
-            width: 99%;
-            left: 9px;
-            top: 3px;
-
-          }
-
-          nav ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-          }
-
-          nav ul li a {
-            color: #fff;
-            display: block;
-            padding: 10px 20px;
-            text-decoration: none;
-            position: relative;
-          }
-
-
-          body {
-            background-image: url("https://cdn-icons-png.flaticon.com/512/9432/9432403.png");
-            background-size: cover;
-            height: 100vh;
-            position: relative;
-          }
-
-          nav {
-
-            background-color: #333;
-            display: flex;
-            border-radius: 10px;
-            border: 4px solid #918f7f;
+            /* border: 4px solid #918f7f; */
             justify-content: right;
             padding: 10px 20px;
             position: absolute;
@@ -107,7 +69,7 @@
           }
 
           nav ul li a:hover {
-            background-color: #444;
+            background-color: #41d8a9;
           }
 
           nav ul li a:hover::before {
@@ -122,51 +84,54 @@
             display: none;
           }
         </style>
-        <form action="/" method="post" >
-          <div class="mb-2 text-lg text-yellow-200">
+        <form action="/" method="post">
+          <div class="mb-2 text-lg text-[#c3fcff]">
+
             <label for="string" id="stringlbl"
               class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Text
               to be Encoded:</label>
           </div>
-          <div class="mb-2 text-lg text-yellow-200">
+          <div class="mb-2 text-lg text-[#c3fcff]">
             <label for="url" id="urllbl"
               class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">URL
               to be Encoded:</label>
           </div>
-          <div class="mb-2 text-lg text-yellow-200">
+          <div class="mb-2 text-lg text-[#c3fcff]">
             <label for="image" id="imagelbl"
               class="rounded-3xl mx-4 border-none backdrop-blur-md bg-opacity-5 px-7 py-2 text-center text-inherit outline-none">Image
               to be Encoded:</label>
           </div>
           <div class="mb-4 text-lg">
             <input id="string"
-              class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="text" name="Text" placeholder="Enter data" autocomplete="off" spellcheck=false >
+            class="rounded-3xl border-none bg-gradient-to-r from-green-400 to-blue-500 ...  bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+            type="text" name="Text" placeholder="Enter data" autocomplete="off" spellcheck=false >
             <input id="url"
-              class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="text" name="URL" placeholder="Enter URL" autocomplete="off" spellcheck=false >
-            <input id="image"
-              class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
-              type="file" accept="image/*" onchange="encodeImageFileAsURL(this)" name="Image" placeholder="Upload Image" autocomplete="off" spellcheck=false >
-              <input type="hidden" name="ImageString" id="imgURL">
+            class="rounded-3xl border-none bg-gradient-to-r from-green-400 to-blue-500 ... bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" 
+            type="text" name="URL" placeholder="Enter URL" autocomplete="off" spellcheck=false >
+            <input id="image" 
+            class="rounded-3xl border-none bg-gradient-to-r from-green-400 to-blue-500 ... bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+            type="file" accept="image/*" onchange="encodeImageFileAsURL(this)" name="Image" placeholder="Upload Image" autocomplete="off" spellcheck=false >
+            <input type="hidden" name="ImageString" id="imgURL">
           </div>
           <div class="text-center">
             <span onclick="handleClick('text')" id="stringselector"
-              class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black bg-yellow-400 bg-opacity-50">Text</span>
+              class="p-2 border-2 rounded-md text-[15px] bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-indigo-500 ... hover:bg-opacity-50 cursor-pointer active">Text</span>
             <span onclick="handleClick('url')" id="urlselector"
-              class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black">Link</span>
+              class="p-2 border-2 rounded-md text-[15px] bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-indigo-500 ... hover:bg-opacity-50 cursor-pointer">Link</span>
             <span onclick="handleClick('image')" id="imageselector"
-              class="p-2 border-2 rounded-md text-[15px] hover:bg-yellow-400 hover:bg-opacity-50 hover:text-black hover:border-black">Image</span>
+              class="p-2 border-2 rounded-md text-[15px] bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-indigo-500 ... hover:bg-opacity-50 cursor-pointer">Image</span>
           </div>
           <div class="mt-8 flex justify-center text-lg text-black">
             <button type="submit"
-              class="rounded-3xl bg-yellow-500 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Generate</button>
+              class="rounded-3xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-indigo-500 ...  bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Generate</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-
+  
+  <%- include('partials/footer.ejs') %>
+ 
 
   <script>
     var text = document.querySelector("#string");
@@ -191,7 +156,7 @@
         imagelbl.style.display = "none";
         text.style.display = "block";
         textlbl.style.display = "inline";
-        textsel.style.backgroundColor = "rgba(250,204,21,0.5)";
+        textsel.style.backgroundColor = "#3b82f6";
         text.required=true;
         link.required=false;
         link.value="";
@@ -203,7 +168,7 @@
         linklbl.style.display = "none";
         image.style.display = "block";
         image.required=true;
-        imagesel.style.background = "rgba(250,204,21,0.5)";
+        imagesel.style.background = "#3b82f6";
         imagelbl.style.display = "inline";
         text.style.display = "none";
         textsel.style.background = "none";
@@ -215,7 +180,7 @@
         }else {
         link.style.display = "block";
         link.required=true;
-        linksel.style.background = "rgba(250,204,21,0.5)";
+        linksel.style.background = "#3b82f6";
         linklbl.style.display = "inline";
         image.style.display = "none";
         imagesel.style.background = "none";
@@ -230,7 +195,7 @@
       }
     }
   </script>
-
+  
   <script>
     function encodeImageFileAsURL(element) {
       let file = element.files[0];
@@ -243,5 +208,3 @@
       reader.readAsDataURL(file);
     }
   </script>
-
-  <%- include('partials/footer.ejs') %>
