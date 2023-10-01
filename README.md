@@ -1,6 +1,6 @@
 # Generate QR code
 
-A Web App to generate QR codes.
+A Web App to generate QR codes. Manobal.
 
 ## About the project
 
